@@ -1,7 +1,7 @@
 import java.util.Iterator;
 /*
  * This code is based on the code for java.util.List available at
-* http://hg.openjdk.java.net/jdk8u/jdk8u/jdk/file/9d617cfd6717/src/share/classes/java/util/List.java
+ * http://hg.openjdk.java.net/jdk8u/jdk8u/jdk/file/9d617cfd6717/src/share/classes/java/util/List.java
  */
 
 
