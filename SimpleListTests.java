@@ -22,13 +22,17 @@ public class SimpleListTests {
 
   // Test that isEmpty works
 
-  // Test that size is reported correctly
+  // Test that emptiness is reported correctly
   @Test
-  public void emptySize(){
+  public void empty(){
     assertTrue(e.isEmpty());
   }
 
-  //TODO write one in class to make sure the other list is not empty
+  // Test that emptiness is reported correctly for non-empty SimpleList
+  @Test
+  public void notEmpty(){
+    assertFalse(f.isEmpty());
+  }
 
   // Test that size is reported correctpy
 }
