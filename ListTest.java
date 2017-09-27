@@ -37,11 +37,19 @@ public class ListTest {
 
   /**************************************************/
   /* Testing new List is created to specification   */
+  /* Doubles as size test. TODO: How to isolate     */
+  /* these tests?                                   */
   /**************************************************/
   @Test
   public void testCreate() {
     assertEquals(0, e.size());
   }
+
+  @Test
+  public void testCreate2() {
+    assertEquals(2, f.size());
+  }
+
 
   /**********************************/
   /* Testing valid and invalid adds */
@@ -90,69 +98,32 @@ public class ListTest {
   /*****************************************/
   /* Testing a valid and an invalid remove */
   /*****************************************/
-  /*
-  @Test
-  public void d_testRemove0() {
-    Logger.addSectionBreak();
-    Logger.addTest("vector-remove-0");
-    Logger.expectException();
-
-    Vector<Integer> v = new Vector<Integer>();
-    v.add(1234);
-
-    try {
-      boolean b = v.remove(new Integer(1234));
-      assertTrue(b);
-      Logger.pass();
-    } catch (AssertionError e) {
-      Logger.wrongValue();
-      throw e;
-    }
-  }
 
   @Test
-  public void d_testRemove1() {
-    Logger.addSectionBreak();
-    Logger.addTest("vector-remove-1");
-    Logger.expectException();
-
-    Vector<Integer> v = new Vector<Integer>();
-    v.add(1234);
-
-    try {
-      boolean b = v.remove(new Integer(0));
-      assertFalse(b);
-      Logger.pass();
-    } catch (AssertionError e) {
-      Logger.wrongValue();
-      throw e;
-    }
+  public void testValidRemove() {
+    f.remove("hello");
+    assertEquals(f.indexOf("hello"), -1);
   }
-*/
+
+  @Test(expected = IndexOutOfBoundsException.class)
+  public void testInvalidRemove() {
+    f.remove(2);
+  }
+
   /***********************************/
   /* Testing a valid and invalid set */
   /***********************************/
-  /*
+
   @Test
-  public void e_testSet0() {
-    Logger.addSectionBreak();
-    Logger.addTest("vector-set-0");
-    Logger.expectException();
-
-    Vector<Integer> v = new Vector<Integer>();
-    v.add(1234);
-
-    try {
-      Integer i = v.set(0, 10);
-      assertNotNull(i);
-      Logger.pass();
-    } catch (AssertionError e) {
-      Logger.wrongValue();
-      throw e;
-    }
+  public void testValidSet() {
+    f.set(0, "hi");
+    assertEquals(f.get(0), "hi");
   }
-*/
-  //TODO Write a test for an invalid set
+
+  @Test(expected = IndexOutOfBoundsException.class)
+  public void testInvalidSet() {
+    f.set(6, "hi");
+  }
 
   /***********************************/
   /* Testing isEmpty                 */
